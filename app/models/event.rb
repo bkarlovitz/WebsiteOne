@@ -17,6 +17,8 @@ class Event < ApplicationRecord
   attr_accessor :next_occurrence_time_attr
   attr_accessor :repeat_ends_string
 
+  has_and_belongs_to_many :slack_channels
+
   COLLECTION_TIME_FUTURE = 10.days
   COLLECTION_TIME_PAST = 300.minutes
   NEXT_SCRUM_COLLECTION_TIME_PAST = 15.minutes

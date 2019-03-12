@@ -133,5 +133,15 @@ describe EventInstance, type: :model do
         expect(hangout.slack_channel_codes).to eq []
       end
     end
+
+    context 'event has slack channels' do
+      let(:slack_channel) { FactoryBot.create(:slack_channel, code: 'abc123')}
+      let(:event) { FactoryBot.create(:event, slack_channels: [slack_channel])}
+      let(:hangout) { FactoryBot.create(:event_instance, event: event)}
+
+      it 'should return the events slack channels' do
+        expect(hangout.slack_channel_codes).to eq ['abc123']
+      end
+    end
   end
 end

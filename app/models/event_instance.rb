@@ -64,6 +64,10 @@ class EventInstance < ApplicationRecord
     yt_video_id && "https://youtu.be/#{yt_video_id}"
   end
 
+  def slack_channel_codes
+    []
+  end
+
   private
 
   def manually_updated_event_not_finished?
